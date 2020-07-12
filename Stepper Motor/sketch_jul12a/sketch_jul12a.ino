@@ -18,11 +18,11 @@
 #define SPEED_VARIATION_RATIO 1.0 / 64.0
 #define STEPS_FOR_REVOLUTION (360 / (2 * STRIDE_ANGLE)) * (1.0 / (SPEED_VARIATION_RATIO))
 
-Stepper stepper1(STEPS_FOR_REVOLUTION, IN1, IN3, IN2, IN4); 
+Stepper stepper1(MOTOR_STEPS, IN1, IN3, IN2, IN4); 
 
 
     void setup() {
-      stepper1.setSpeed(15); // max RPM value for 28BYJ-48 5v
+      stepper1.setSpeed(900); // max RPM value for 28BYJ-48 5v
     }
 
   
