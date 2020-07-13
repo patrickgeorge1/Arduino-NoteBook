@@ -22,7 +22,8 @@ Stepper stepper1(MOTOR_STEPS, IN1, IN3, IN2, IN4);
 
 
     void setup() {
-      stepper1.setSpeed(900); // max RPM value for 28BYJ-48 5v
+      stepper1.setSpeed(700); // recommanded max rpm for 28BYJ-48 5v
+      // works even with 1000 rpm but not recommanded
     }
 
   
@@ -32,3 +33,5 @@ Stepper stepper1(MOTOR_STEPS, IN1, IN3, IN2, IN4);
       stepper1.step(- STEPS_FOR_REVOLUTION);
       delay(1000);
     }
+
+// Refs: https://www.youtube.com/watch?v=0qwrnUeSpYQ
