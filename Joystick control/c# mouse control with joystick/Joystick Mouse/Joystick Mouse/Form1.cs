@@ -13,9 +13,17 @@ namespace Joystick_Mouse
 {
     public partial class Form1 : Form
     {
+        // communication requierments
         public System.IO.Ports.SerialPort port =  new System.IO.Ports.SerialPort();
         public string coordinates;
         public bool status_connection = false;
+
+        // phisics requirements
+        public int x_acceleration = 0;
+        public int y_acceleration = 0;
+        public int x_speed = 0;
+        public int y_speed = 0;
+
 
         public Form1()
         {
@@ -117,26 +125,27 @@ namespace Joystick_Mouse
                 string Y = words[1];
 
 
-                int x_difference = int.Parse(X) / 10;
-                int y_difference = int.Parse(Y) / 10;
+                int x_value = int.Parse(X) / 20;
+                int y_value = int.Parse(Y) / 20;
+
+                int x_sign  = Math.Sign(x_value);
+                int y_sign  = Math.Sign(y_value);
 
 
-                int x_steps = (int)Math.Sqrt(Math.Abs(x_difference));
-                int y_steps = (int)Math.Sqrt(Math.Abs(y_difference));
 
-                int x_step = x_difference / Math.Max(x_steps, y_steps);
-                int y_step = y_difference / Math.Max(x_steps, y_steps);
+                x_acceleration = Math.Abs(x_value);
+                y_acceleration = Math.Abs(y_value);
 
+                x_speed = x_sign * (Math.Abs(x_speed) + x_acceleration);
+                y_speed = y_sign * (Math.Abs(y_speed) + y_acceleration);
+
+
+
+                lX.Text = Cursor.Position.X.ToString();
+                lY.Text = Cursor.Position.Y.ToString();
                 this.Cursor = new Cursor(Cursor.Current.Handle);
+                Cursor.Position = new Point(Cursor.Position.X + x_speed, Cursor.Position.Y + y_speed);
 
-                for (int i = 1; i <= Math.Max(x_steps, y_steps); i++)
-                {
-                    
-                    lX.Text = Cursor.Position.X.ToString();
-                    lY.Text = Cursor.Position.Y.ToString();
-
-                    Cursor.Position = new Point(Cursor.Position.X + x_step, Cursor.Position.Y + y_step);
-                }
 
             } catch { }
         }
