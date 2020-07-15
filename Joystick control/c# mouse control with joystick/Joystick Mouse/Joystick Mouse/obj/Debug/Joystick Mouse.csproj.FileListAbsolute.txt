@@ -1,0 +1,10 @@
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\bin\Debug\Joystick Mouse.exe.config
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\bin\Debug\Joystick Mouse.exe
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\bin\Debug\Joystick Mouse.pdb
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\obj\Debug\Joystick Mouse.csprojAssemblyReference.cache
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\obj\Debug\Joystick_Mouse.Form1.resources
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\obj\Debug\Joystick_Mouse.Properties.Resources.resources
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\obj\Debug\Joystick Mouse.csproj.GenerateResource.cache
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\obj\Debug\Joystick Mouse.csproj.CoreCompileInputs.cache
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\obj\Debug\Joystick Mouse.exe
+C:\Users\patri\Desktop\Arduino NoteBook\Joystick control\c# mouse control with joystick\Joystick Mouse\Joystick Mouse\obj\Debug\Joystick Mouse.pdb
