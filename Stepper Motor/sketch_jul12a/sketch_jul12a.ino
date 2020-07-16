@@ -1,5 +1,7 @@
 #include <Stepper.h>
 
+// red = center tap, orange = 1, yellow = 2, pink = 3, blue = 4 so from D to A on board leds, wires must be center tap, 1,2,3,4 
+
 #define IN1 8
 #define IN2 9
 #define IN3 10

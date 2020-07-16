@@ -125,8 +125,8 @@ namespace Joystick_Mouse
                 string Y = words[1];
 
 
-                int x_value = int.Parse(X) / 20;
-                int y_value = int.Parse(Y) / 20;
+                int x_value = int.Parse(X) / 25;
+                int y_value = int.Parse(Y) / 25;
 
                 int x_sign  = Math.Sign(x_value);
                 int y_sign  = Math.Sign(y_value);
@@ -139,10 +139,10 @@ namespace Joystick_Mouse
                 x_speed = x_sign * (Math.Abs(x_speed) + x_acceleration);
                 y_speed = y_sign * (Math.Abs(y_speed) + y_acceleration);
 
-
-
                 lX.Text = Cursor.Position.X.ToString();
                 lY.Text = Cursor.Position.Y.ToString();
+
+
                 this.Cursor = new Cursor(Cursor.Current.Handle);
                 Cursor.Position = new Point(Cursor.Position.X + x_speed, Cursor.Position.Y + y_speed);
 

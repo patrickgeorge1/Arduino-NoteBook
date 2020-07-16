@@ -1,5 +1,5 @@
-#define Ox A0
-#define Oy A1
+  #define Ox A0
+  #define Oy A1
 
 
 
@@ -12,8 +12,7 @@ void setup() {
 void loop() {
    int x = 2 +  map(analogRead(Ox) / 3, 0, 341, -170, 170); // to fix joystick fizic problems
    int y = 1 +  map(analogRead(Oy) / 3, 0, 341, -170, 170);
-//   int x = analogRead(Ox);
-//   int y = analogRead(Oy);
+
    Serial.print(x);
    Serial.print("#");
    Serial.println(y);
