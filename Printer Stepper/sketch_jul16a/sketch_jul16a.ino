@@ -23,22 +23,14 @@ Stepper stepper1(MOTOR_STEPS, IN1, IN3, IN2, IN4);
             stepper1.step(1);
             i += 1;
         }
-        Serial.print("origin position occured after ");
-        Serial.println(i);
 
         stepper1.setSpeed(250); // recommanded max rpm  300 for 103-550-0146 SANYO-DENKI
         stepper1.step(-TOTAL_TRAJECTORY_STEPS);
     }
 
     void move(int x) {
-
       if (x < 0) x = 0;
       else if (x > TOTAL_TRAJECTORY_STEPS) x = TOTAL_TRAJECTORY_STEPS;
-
-      Serial.print("current possition ");
-      Serial.print(position);
-      Serial.print("  -- new --> ");
-      Serial.println(x);
       
       stepper1.step(x - position);
       position = x;
@@ -48,8 +40,6 @@ Stepper stepper1(MOTOR_STEPS, IN1, IN3, IN2, IN4);
       Serial.begin(9600);
       pinMode(calibration_switch, INPUT);
       calibrate();  // move to initial position
-      delay(2000);
-
     }
 
   
