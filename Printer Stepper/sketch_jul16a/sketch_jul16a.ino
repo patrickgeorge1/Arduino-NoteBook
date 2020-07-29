@@ -13,6 +13,7 @@
 #define TOTAL_TRAJECTORY_STEPS 1100
 
 int position = 0;
+String serialData;
 
 Stepper stepper1(MOTOR_STEPS, IN1, IN3, IN2, IN4); 
 
@@ -29,6 +30,9 @@ Stepper stepper1(MOTOR_STEPS, IN1, IN3, IN2, IN4);
     }
 
     void move(int x) {
+      //  can move in interval [0, 1100]
+      //  move(100);
+      
       if (x < 0) x = 0;
       else if (x > TOTAL_TRAJECTORY_STEPS) x = TOTAL_TRAJECTORY_STEPS;
       
@@ -38,15 +42,17 @@ Stepper stepper1(MOTOR_STEPS, IN1, IN3, IN2, IN4);
     
     void setup() {
       Serial.begin(9600);
+      Serial.setTimeout(150);
       pinMode(calibration_switch, INPUT);
       calibrate();  // move to initial position
     }
 
-  
+
     void loop() {
-        // can move in interval [0, 1100]
-        move(100);
-        delay(500);
-        move(0);
-        delay(500);
+      
+    }
+
+    void serialEvent() {
+       serialData = Serial.readString(); 
+       move(serialData.toInt());
     }
