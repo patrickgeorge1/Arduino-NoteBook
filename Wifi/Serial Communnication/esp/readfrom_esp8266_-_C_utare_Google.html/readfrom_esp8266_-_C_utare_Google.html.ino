@@ -13,8 +13,28 @@ void sendSerial(char *message) {
   digitalWrite(LED_BUILTIN, LOW);
 }
 
+
+String readSerial(boolean *StringReady) {
+  String IncomingString = "";
+  *StringReady = false;
+
+  while(Serial.available()) {
+    IncomingString = Serial.readString();
+    *StringReady = true;
+  }
+  return IncomingString;
+}
+
 void loop() {
-//  SEND A MESSAGE
+// Send to serial
 //  sendSerial("I am esp\n");
 //  delay(3000);
+
+
+// Read from serial
+//  boolean isAnyMessage = false;
+//  String message = readSerial(&isAnyMessage);
+//  if(isAnyMessage) {
+//      digitalWrite(LED_BUILTIN, HIGH);
+//  }
 }

@@ -1,3 +1,5 @@
+// arduino
+
 #include <SoftwareSerial.h>
 #define LED 7
 
@@ -25,11 +27,23 @@ String readSerial(boolean *StringReady) {
   return IncomingString;
 }
 
+void sendSerial(char *message) {
+  digitalWrite(LED_BUILTIN, HIGH);
+  mySerial.print(message);
+  delay(20);
+  digitalWrite(LED_BUILTIN, LOW);
+}
+
 void loop() {
-  boolean isAnyMessage = false;
-  String message = readSerial(&isAnyMessage);
-  if(isAnyMessage) {
-        Serial.println("[ESP]: " + message); 
-  }
-  
+
+// Read from serial
+//  boolean isAnyMessage = false;
+//  String message = readSerial(&isAnyMessage);
+//  if(isAnyMessage) {
+//        Serial.println("[ESP]: " + message); 
+//  }
+
+//  Send to serial
+//  sendSerial("I am arduino");
+  delay(3000);
 }
