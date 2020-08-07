@@ -48,13 +48,15 @@ namespace RGB_controll
         public void sendSerial(int level) {
 
             if (level > maximumPeak) level = maximumPeak;
-            port.Write(remap(level, 0, 50, 0, 255).ToString());
-
+            level = remap(level, 0, 50, 0, 255);
+            Console.WriteLine(level.ToString());
+            port.Write(level.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             port.Close();
+            Application.Exit();
         }
     }
 }
