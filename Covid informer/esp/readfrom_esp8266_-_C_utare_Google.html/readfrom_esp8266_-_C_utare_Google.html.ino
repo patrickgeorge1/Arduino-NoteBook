@@ -45,6 +45,7 @@ void setup() {
 //  Serial.println(WiFi.localIP());
 }
 
+// advanced serial write
 void sendBigString(String message) {
       int counter = 0;
       String buffer = "";
