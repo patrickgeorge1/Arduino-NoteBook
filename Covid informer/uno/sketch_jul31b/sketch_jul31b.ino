@@ -4,10 +4,11 @@
 #include<ArduinoJson.h>
 #include <LiquidCrystal.h>
 
-#define DISPLAY_MODE_NR 3
-#define TOTAL_CASES_MODE 0
-#define TODAY_CASES_MODE 1
-#define TODAY_DEATHS_MODE 2
+#define DISPLAY_MODE_NR 4
+#define GREETING_MODE 0
+#define TOTAL_CASES_MODE 1
+#define TODAY_CASES_MODE 2
+#define TODAY_DEATHS_MODE 3
 
 SoftwareSerial mySerial(3, 2);  // RX, TX
 StaticJsonDocument<450> doc;
@@ -18,13 +19,10 @@ long cases = 0;
 int todayCases = 0;
 int todayDeaths = 0;
 unsigned long lastTime = 0;
-int display_mode = 0;
+int display_mode = -1;
     
 void setup() {
-  lcd.begin(16, 2);
-  lcd.clear();
-  lcd.print("Asteptati !");
-    
+  lcd.begin(16, 2);    
   mySerial.begin(9600);
   mySerial.setTimeout(15);
   Serial.begin(9600);
@@ -66,10 +64,15 @@ void loop() {
         }
         // display
         else {
-             if (millis() - lastTime > 3500) {
+             if (abs(millis() - lastTime) > 3500) {
                   display_mode = (display_mode + 1) % DISPLAY_MODE_NR;
 
                   switch(display_mode) {
+                      case GREETING_MODE:
+                          lcd.clear();
+                          lcd.print("  CO - VID 19");
+                          break;
+                    
                       case TOTAL_CASES_MODE:
                           lcd.clear();
                           lcd.setCursor(0, 0);
