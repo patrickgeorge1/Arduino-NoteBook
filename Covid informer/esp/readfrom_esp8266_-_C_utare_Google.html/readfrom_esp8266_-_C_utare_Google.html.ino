@@ -2,9 +2,10 @@
 
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
+#include <ESP8266WiFiMulti.h>
 
-const char* ssid     = "Quadrant I";     
-const char* password = "jesjesjes";
+ESP8266WiFiMulti wifiMulti;
+
 String lastJsonRequested;
 unsigned long lastTime = -300000;
 
@@ -13,13 +14,14 @@ void setup() {
   delay(2000);
   Serial.begin(9600);
 
-  WiFi.begin(ssid, password);
-  Serial.println();
-
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
+  wifiMulti.addAP("Wifi-1-Name", "Wifi-1-Password");
+  wifiMulti.addAP("Wifi-2-Name", "Wifi-2-Password");
+  
+  while (wifiMulti.run() != WL_CONNECTED) {
+       delay(1000);
   }
+  
+  
   Serial.println();
 }
 
